@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Enlace a Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+ <!-- Enlace al archivo CSS externo -->
+    <link rel="stylesheet" href="diseñojus.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="welcome-section">
+            <div class="user-icon">👤</div>
+            <h1>¡Buenos Días!</h1>
+            <p>Favor de justificar la falta.</p>
+        </div>
+        <div class="form-section">
+           
+            <!-- Formulario con Bootstrap, Font Awesome y validación -->
+            <form action="procesar_justificacion.php" method="POST" class="needs-validation" novalidate>
+    <!-- Campos del formulario -->
+
+
+                <div class="mb-3">
+                    <label for="id_falta" class="form-label"> ID de Falta</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                        <input type="text" id="id_falta" name="id_falta" class="form-control" placeholder="ID de Falta" required>
+                    </div>
+                    <div class="invalid-feedback">Por favor ingrese el ID de la falta.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="fec_creacion" class="form-label"> Fecha de Creación</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-calendar-day"></i></span>
+                        <input type="date" id="fec_creacion" name="fec_creacion" class="form-control" required>
+                    </div>
+                    <div class="invalid-feedback">Por favor ingrese la fecha de creación.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="fec_justificacion" class="form-label"> Fecha de Justificación</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-calendar-check"></i></span>
+                        <input type="date" id="fec_justificacion" name="fec_justificacion" class="form-control" required>
+                    </div>
+                    <div class="invalid-feedback">Por favor ingrese la fecha de justificación.</div>
+                </div>
+                <!-- Falta por Día o Hora con Radio y Checkbox -->
+                <div class="mb-3">
+                    <label class="form-label">¿Falta por Día o por Hora?</label>
+                    <div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="falta_dia" name="falta_tipo" value="dia" required>
+                            <label class="form-check-label" for="falta_dia">Día</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="falta_hora" name="falta_tipo" value="hora" required>
+                            <label class="form-check-label" for="falta_hora">Hora</label>
+                        </div>
+                    </div>
+                    <div class="invalid-feedback">Por favor seleccione si la falta es por día o por hora.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="justificacion" class="form-label"> Motivo de la Falta</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-comment-alt"></i></span>
+                        <textarea id="justificacion" name="justificacion" class="form-control" placeholder="Motivo de la falta" required></textarea>
+                    </div>
+                    <div class="invalid-feedback">Por favor ingrese el motivo de la falta.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="fecha_falta" class="form-label">Fecha de la Falta</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                        <input type="date" id="fecha_falta" name="fecha_falta" class="form-control" required>
+                    </div>
+                    <div class="invalid-feedback">Por favor ingrese la fecha de la falta.</div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 mb-2">Justificar</button>
+                <!-- Botón de Volver al Menú -->
+                <a href="MENU.php" class="btn btn-secondary w-100">Volver al Menú</a>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS, Popper y Font Awesome -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Script de validación -->
+    <script>
+        (function () {
+            'use strict'
+            var forms = document.querySelectorAll('.needs-validation')
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
+</body>
+</html>
